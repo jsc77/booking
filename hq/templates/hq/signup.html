@@ -1,0 +1,111 @@
+{% extends 'hq/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    
+  <head>
+    <style>
+      body {
+    margin: 0;
+    padding: 0;
+          background: url("{% static 'back4.jpg'  %}") no-repeat;
+  background-size : cover;
+    font-family: 'Kosugi Maru', sans-serif;
+    font-size: 1em;
+}
+
+.box {
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px
+}
+
+.box input[type="text"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 5px solid #3498db;
+    padding: 20px 30px;
+    width: 300px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s
+
+}
+
+.box h1 {
+    color: white;
+    width: 300px;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 800px;
+    border-color: #2ecc71
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 5px solid #2ecc71;
+    padding: 14px 20px;
+    outline: none;
+    color: gold;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+    width: 300px;
+}
+
+.box input[type="submit"]:hover {
+    background: #2ecc71
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: white;
+            opacity: 1; /* Firefox */
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: green;
+}
+    </style>
+  </head>
+<body>
+
+
+
+<br><br><br>
+<div class="container ">
+    <div class="row">        
+                <form method="POST" class="box" autocomplete="off" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h1 style="color:yellow;">ライフテクノサービス</h1>
+                    <h1>ご予約承り</h1>
+                    <h1 style="color:#FED85D;">会員登録</h1>
+                    {% render_field userForm.username|attr:'required:true' style="font-size:20px" class="form-control text-white" placeholder="お名前（ハイフン無し）" %}
+                    {% render_field userForm.password|attr:'required:true'  style="font-size:20px" class="form-control text-white" placeholder="暗証番号（６文字以上）" %}
+                    {% render_field studentForm.mobile|attr:'required:true' style="font-size:20px"  class="form-control text-white" placeholder="電話番号（ハイフン要）" %}
+                    {% render_field studentForm.address|attr:'required:true'  style="font-size:20px" class="form-control text-white" placeholder="住所" %}
+                    <input style="color:white;" type="submit"value="登録">
+                </form>
+    </div>
+</div>
+</body>
+{% endblock content %}

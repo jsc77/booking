@@ -1,0 +1,272 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+</head>
+
+<style>
+h4{
+    font-size:2.5rem;
+    color:gold;
+}
+</style>
+<body>
+
+<!-- header section starts -->
+{% block content %}
+<header id="header">
+
+<nav>
+    <ul>
+		<li class="nav-item"><a href="#home" class="nav-link font-weight-bold">ホーム</a></li>
+		<li class="nav-item"><a href="#dish" class="nav-link font-weight-bold">施設案内</a></li>
+		<li class="nav-item"><a href="{% url 'dashboard' %}" class="nav-link font-weight-bold">予約</a></li>
+        {% if user.is_authenticated %}
+		<li class="nav-item"><a href="{% url 'logout' %}" class="nav-link text-uppercase font-weight-bold">ログアウト</a></li>
+		<li class="nav-item"><a href="{% url 'profile' user.pk%}" class="nav-link font-weight-bold">プロフィール</a></li>
+        {% else %}
+		<li class="nav-item"><a href="{% url 'signup' %}" class="nav-link font-weight-bold">会員登録</a></li>
+		<h1 style="color:red" class="nav-item"><a>/&emsp;&emsp;</a></h1>
+        <li class="nav-item"><a href="{% url 'login' %}" class="nav-link font-weight-bold">ログイン</a></li>
+        {% endif %}
+        <li class="nav-item"><a href="#footer" class="nav-link font-weight-bold">お問い合せ</a></li>
+
+    </ul>
+</nav>
+
+<div class="fas fa-bars"></div>
+
+<a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+
+</header>
+
+<!-- header section ends -->
+
+
+<!-- home section starts  -->
+
+<section id="home" class="container-fluid">
+
+<div class="row min-vh-100 align-items-center">
+    
+<div class="col-md-8 ml-md-5 text-md-left text-center content">
+    <h2>いつもありがとうございます！</h2>
+    <h1>株式会社ライフテクノサービス</h1>
+    <p>予約システム</p>
+    <a href="{% url 'dashboard' %}"><button>ご予約</button></a>
+</div>
+
+<div class="video-container">
+    <video loop autoplay muted class="vid vid1"><source src="{% static '/vid1.mp4'%}" type="video/mp4"></source></video>
+    <video src="images/vid2.mp4" autoplay loop class="vid vid2"></video>
+    <video src="images/vid3.mp4" autoplay loop class="vid vid3"></video>
+</div>
+
+<div class="controls">
+    <div class="dots dot1"></div>
+    <div class="dots dot2"></div>
+    <div class="dots dot3"></div>
+</div>
+
+</div>
+
+</section>
+
+<section id="dish" class="container">
+
+    <div class="heading text-center">
+        <h1>施設一覧</h1>
+    </div>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="{% static '伊賀ケアーホーム.jpg'  %}">
+            <div class="info">
+                <h4>伊賀ケアーホーム</h4>
+                <p>特定施設入居者生活介護とは、特定施設に入居している要介護者に対して、介護サービス計画に基き、入浴・排泄・食事等の介護</p>
+                <a href="{% url 'facility'%}"><button>詳細を見る</button></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="{% static '四日市ケアーホーム.jpg'  %}">
+            <div class="info">
+                <h4>四日市ケアーホーム</h4>
+                <p>特定施設入居者生活介護とは、特定施設に入居している要介護者に対して、介護サービス計画に基き、入浴・排泄・食事等の介護</p>
+                <a href="#"><button>詳細を見る</button></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="{% static '名張ケアーホーム.jpg'  %}">
+            <div class="info">
+                <h4>名張ケアーホーム</h4>
+                <p>特定施設入居者生活介護とは、特定施設に入居している要介護者に対して、介護サービス計画に基き、入浴・排泄・食事等の介護</p>
+                <a href="#"><button>詳細を見る</button></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="{% static '津ケアーホーム.jpg'  %}">
+            <div class="info">
+                <h4>津ケアーホーム</h4>
+                <p>特定施設入居者生活介護とは、特定施設に入居している要介護者に対して、介護サービス計画に基き、入浴・排泄・食事等の介護</p>
+                <a href="#"><button>詳細を見る</button></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="{% static '特養憩いの街.jpg'  %}">
+            <div class="info">
+                <h4>『特養』憩いの街</h4>
+                <p>特定施設入居者生活介護とは、特定施設に入居している要介護者に対して、介護サービス計画に基き、入浴・排泄・食事等の介護</p>
+                <a href="#"><button>詳細を見る</button></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="{% static '特養津の街.jpg'  %}">
+            <div class="info">
+                <h4>『特養』津の街</h4>
+                <p>特定施設入居者生活介護とは、特定施設に入居している要介護者に対して、介護サービス計画に基き、入浴・排泄・食事等の介護</p>
+                <a href="#"><button>詳細を見る</button></a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{% static '鴻之台ケアホーム.jpg'  %}">
+            <div class="info">
+                <h4>『特養』鴻之台ケアホーム</h4>
+                <p>特定施設入居者生活介護とは、特定施設に入居している要介護者に対して、介護サービス計画に基き、入浴・排泄・食事等の介護</p>
+                <a href="#"><button>詳細を見る</button></a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{% static '特養伊賀の街.jpg'  %}">
+            <div class="info">
+                <h4>『特養』伊賀の街</h4>
+                <p>特定施設入居者生活介護とは、特定施設に入居している要介護者に対して、介護サービス計画に基き、入浴・排泄・食事等の介護</p>
+                <a href="#"><button>詳細を見る</button></a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact" class="container-fluid">
+    <div class="heading text-center">
+        <h1><span>お問い合せ</span></h1>
+    </div>
+    <div class="row justify-content-center">
+        <form action="" class="col-md-7">
+            <div class="inputBox">
+                <input type="text" required>
+                <h3>フールーネーム</h3>
+            </div>
+            <div class="inputBox">
+                <input type="email" required>
+                <h3>メールアドレス</h3>
+            </div>
+            <div class="inputBox">
+                <textarea required name="" id="" cols="30" rows="10"></textarea>
+                <h3>メッセージ</h3>
+            </div>
+            <input type="submit" value="send">
+        </form>
+    </div>
+</section>
+
+
+<section id="footer" style="background-color: navy;">
+        <div class="brand" style="padding:0;">
+            <div class="icons">
+                <a href="#" class="fab fa-facebook-square"></a>
+                <a href="#" class="fab fa-twitter-square"></a>
+                <a href="#" class="fab fa-instagram-square"></a>
+                <a href="#" class="fab fa-pinterest-square"></a>
+                <a href="" style="color:yellow;">&copy; 1998~2021 LTSグループ</a>
+            </div>
+        </div>
+</section>
+
+<!-- footer section ends  -->
+
+
+<!-- script part starts  -->
+
+<script>
+
+$(document).ready(function(){
+
+    $('.fa-bars').click(function(){
+        $(this).toggleClass('fa-times');
+        $('nav').toggleClass('nav-toggle');
+    });
+
+    $('nav ul li a').click(function(){
+        $('.fa-bars').removeClass('fa-times');
+        $('nav').removeClass('nav-toggle');
+    });
+
+    $('.dot1').click(function(){
+        $('.vid1').css('display','block');
+        $('.vid2').css('display','none');
+        $('.vid3').css('display','none');
+    });
+
+    $('.dot2').click(function(){
+        $('.vid2').css('display','block');
+        $('.vid1').css('display','none');
+        $('.vid3').css('display','none');
+    });
+
+    $('.dot3').click(function(){
+        $('.vid3').css('display','block');
+        $('.vid1').css('display','none');
+        $('.vid2').css('display','none');
+    });
+
+    $(window).on('scroll load',function(){
+        if($(window).scrollTop() > 10){
+            $('#header').addClass('header-active');
+        }else{
+            $('#header').removeClass('header-active');
+        }
+    });
+
+		$('.form-control').each(function () {
+			floatedLabel($(this));
+		});
+
+		$('.form-control').on('input', function () {
+			floatedLabel($(this));
+		});
+
+		function floatedLabel(input) {
+			var $field = input.closest('.form-group');
+			if (input.val()) {
+				$field.addClass('input-not-empty');
+			} else {
+				$field.removeClass('input-not-empty');
+			}
+		}
+
+
+});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+{% endblock content %}
+
+</body> 
+</html>

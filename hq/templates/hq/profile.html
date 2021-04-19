@@ -1,0 +1,403 @@
+{% extends 'hq/base.html' %}
+{% load static %}
+{% block content %}
+  
+  
+<style>
+body {
+  background: url("{% static 'back2.jpg'  %}") no-repeat;
+  background-size : cover;
+  
+}
+
+
+.text {
+  font-size: 40px;
+  position: absolute center;
+  text-align: center;
+  padding-left: 0%;
+  color: navy;
+  margin-top: 43px;
+}
+
+.text1 {
+  font-size: 21px;
+  text-align: center;
+  margin-top: -20px;
+  color: #000;
+}
+
+.image {
+  text-align: center;
+  width: 200px;
+  /* Container's dimensions */
+  
+  height: 200px;
+  -webkit-border-radius: 75%;
+  -moz-border-radius: 75%;
+  box-shadow: 0 0 0 1px #eee;
+  background: url("{% static 'pikachu.jpg'  %}") center center no-repeat;
+  background-size: cover;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: -30px;
+  align-content: center;
+}
+
+
+
+.trick {
+  display: inline-block;
+  vertical-align: middle;
+  height: 150px;
+}
+
+.image:hover {
+  box-shadow: 0px 5px 20px .9px #3F3F3F;
+}
+
+.image:hover {
+  -webkit-transform: scale(1.12);
+  transform: scale(1.12);
+  -webkit-transition: 1.6s ease-in-out;
+  transition: 1.6s ease-in-out;
+}
+
+
+
+.trick:hover img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+#overlay {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  padding: 0 0 0 0;
+  opacity: 1.0;
+  -webkit-transition: opacity 2.25s ease;
+  -moz-transition: opacity 10.25s ease;
+}
+
+#box:hover #overlay {
+  opacity: 1;
+}
+
+
+
+
+
+.panel-group{
+  width:350px;
+  margin:auto;
+  /*margin:50px 400px 50px 400px;*/
+  max-width:100%;
+}
+
+.panel-heading{
+    opacity: 0.85;
+
+}
+
+.title{
+  text-align: center;
+  color:#000;
+  font-weight:300;
+  font-size:15px;
+  max-width:100%;
+}
+
+
+
+
+#accordion{
+  max-width:100%;
+  margin-bottom:200px;
+}
+
+
+
+
+
+
+
+.btn-outline {
+  color: inherit;
+  transition: all 1.4s;
+}
+/* button CSS */
+
+.btn-danger.btn-outline {
+  margin-top: 9px;
+  color: white;
+  border-color: #000;
+  padding:auto;
+  padding:10px 0px 10px 0px;
+  margin: 1px 5px 1px 0px;
+  width: 100%;
+  text-align:center;
+  font-weight: 300;
+  max-width:100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------    Contact Form    ------------*/
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #000;
+  font-size: 15px;
+}
+/* on hover placeholder */
+
+input:hover::-webkit-input-placeholder,
+textarea:hover::-webkit-input-placeholder {
+  color: #fff;
+  font-size: 15px;
+}
+
+input:hover:focus::-webkit-input-placeholder,
+textarea:hover:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+input:hover::-moz-placeholder,
+textarea:hover::-moz-placeholder {
+  color: #fff;
+  font-size: 15px;
+}
+
+input:hover:focus::-moz-placeholder,
+textarea:hover:focus::-moz-placeholder {
+  color: #fff;
+}
+
+input:hover::placeholder,
+textarea:hover::placeholder {
+  color: #fff;
+  font-size: 15px;
+}
+
+input:hover:focus::placeholder,
+textarea:hover:focus::placeholder {
+  color: #fff;
+}
+
+input:hover::placeholder,
+textarea:hover::placeholder {
+  color: #fff;
+  font-size: 15px;
+}
+
+input:hover:focus::-ms-placeholder,
+textarea:hover::focus:-ms-placeholder {
+  color: #fff;
+}
+
+#form {
+  position: relative;
+  width: 100%;
+  margin: 0px auto 0px auto;
+}
+
+input {
+  font-size: 15px;
+  width: 100%;
+  height: 50px;
+  padding: 0px 12px 0px 12px;
+  background: transparent;
+  outline: none;
+  color: #726659;
+  border: solid 1px #eee;
+  border-bottom: none;
+  transition: all 0.9s ease-in-out;
+  -webkit-transition: all 0.9s ease-in-out;
+  -moz-transition: all 0.9s ease-in-out;
+  -ms-transition: all 0.9s ease-in-out;
+}
+
+input:hover {
+  background: #ccc;
+  color: #fff;
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 110px;
+  max-height: 110px;
+  padding: 15px;
+  background: transparent;
+  outline: none;
+  color: #000;
+  font-size: 25px;
+  border: solid 1px #eee;
+  transition: all 0.9s ease-in-out;
+  -webkit-transition: all 0.9s ease-in-out;
+  -moz-transition: all 0.9s ease-in-out;
+  -ms-transition: all 0.9s ease-in-out;
+}
+
+textarea:hover {
+  background: #ccc;
+  color: #fff;
+}
+
+#submit {
+  width: 100%;
+  padding: 0;
+  font-size: 20px;
+  color: #000;
+  outline: none;
+  cursor: pointer;
+  border: solid 1px #eee;
+  border-top: none;
+  margin-bottom: 0px;
+}
+
+#submit:hover {
+  color: #fff;
+  background-color: #ccc;
+}
+
+@keyframes tipsy {
+  0 {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}
+
+.hit-the-floor {
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  text-shadow: 
+    0 1px 0 #ccc, 
+    0 2px 0 rgb(197,66,55), 
+    0 3px 0 rgb(197,66,66), 
+    0 4px 0 rgb(197,66,77), 
+    0 5px 0 rgb(197,66,82), 
+    0 6px 1px rgb(197,66,82), 
+    0 0 5px rgb(197,66,82), 
+    0 1px 3px rgb(197,66,92), 
+    0 3px 5px rgba(0,0,0,.2), 
+    0 5px 10px rgba(0,0,0,.25), 
+    0 10px 10px rgb(197,67,82), 
+    0 20px 20px rgb(197,68,82);
+}
+
+.hit-the-floor {
+  text-align: center;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+</style>
+<head>
+
+
+</head>
+
+<div class="box">
+    <div id="overlay">
+        <div class="image">
+            <div class="trick">
+            </div>
+        </div>
+        <ul class="text">{{ user.username }}</ul>
+        <div class="text1">{{ user.email }}</div>
+        <br>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        {% for i in student %}
+            <div class="panel panel-default">
+                <div class="panel-heading " role="tab" id="headingOne">
+                    <h4 class="panel-title ">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="" aria-controls="collapseOne">
+                            <div class="title  btn btn-danger btn-outline btn-lg">電話番号：{{ i.mobile }}</div>
+                        </a>
+                    </h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading " role="tab" id="headingOne">
+                    <h4 class="panel-title ">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="" aria-controls="collapseOne">
+                            <div class="title  btn btn-danger btn-outline btn-lg">住所：{{ i.address }}</div>
+                        </a>
+                    </h4>
+                </div>
+            </div>
+            {% endfor %}
+            <br>
+            <div class="hit-the-floor">レンタル相談予約</div>
+            {% if books %}
+            {% for i in books %}
+            <div class="panel panel-default">
+                <div class="panel-heading " role="tab" id="headingOne">
+                    <h4 class="panel-title ">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="" aria-controls="collapseOne">
+                            <div class="title  btn btn-danger btn-outline btn-lg">予約日程：{{ i.date }}{{ i.time }}<br>ご希望の物品種類：{{ i.facility }}<br>コメント：{{ i.location }}</div>
+                        </a>
+                    </h4>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="panel panel-default">
+                <div class="panel-heading " role="tab" id="headingOne">
+                    <h4 class="panel-title ">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="" aria-controls="collapseOne">
+                            <div class="title  btn btn-danger btn-outline btn-lg">予約なし</div>
+                        </a>
+                    </h4>
+                </div>
+            </div>
+          {% endif %}
+          <br>
+            <div class="hit-the-floor">施設予約、申込み日付</div>            
+            {% if question %}
+            {% for i in question %}
+            <div class="panel panel-default">
+                <div class="panel-heading " role="tab" id="headingOne">
+                    <h4 class="panel-title ">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="" aria-controls="collapseOne">
+                            <div class="title  btn btn-danger btn-outline btn-lg">{{ i.date }}</div>
+                        </a>
+                    </h4>
+                </div>
+            </div>
+          {% endfor %}
+          {% else %}
+            <div class="panel panel-default">
+                <div class="panel-heading " role="tab" id="headingOne">
+                    <h4 class="panel-title ">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="" aria-controls="collapseOne">
+                            <div class="title  btn btn-danger btn-outline btn-lg">予約なし</div>
+                        </a>
+                    </h4>
+                </div>
+            </div>
+          {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% load crispy_forms_tags %}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+</head>
+
+
+<div class="jumbotron my-4">
+
+  <form class="form" autocomplete="off" onsubmit="return saveAns()"  action="" method="POST">
+    {% csrf_token %}
+    <h1 style="text-align: center;">ご利用前の簡単アンケート</h1>
+    <h3 class="text-info">質問：２</h3>
+          <div class="form-check mx-4">
+            {{ form|crispy }}
+          </div>
+
+
+        <input class="btn btn-info btn-lg"   type="submit" value="登録">  
+    </form>
+  </div>
+
+
+<br><br><br><br><br><br>
+
+                <script>
+                var name = " {{ user.id }}";
+                document.getElementById("author_id").value = name;
+                </script>

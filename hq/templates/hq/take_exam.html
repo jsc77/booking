@@ -1,0 +1,60 @@
+{%load static%}
+
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<style>
+    body {
+        background: url("{% static 'back3.jpg'  %}") no-repeat;
+          background-size : cover;
+    font-family: 'Kosugi Maru', sans-serif;
+    }
+    h3,h4{
+font-family: 'Kosugi Maru', sans-serif;
+    }
+    .jumbotron{
+        opacity: 0.8;
+    }
+</style>
+
+<br><br>
+<div class="container my-4">
+    <div class="jumbotron">
+
+	      <h3 class="text-info text-center">施設ご予約の前、ご協力をお願い申し上げます。</h3>
+
+        <div class="row">
+
+            <div class="card border-info mx-4 my-4">
+                <div class="card-body text-info">
+
+                    <h4 class="card-title">利用者様の状況把握</h4>
+                    <p class="card-text">
+                        </p><ul style="list-style:decimal;">
+                        </ul>
+                    <p></p>
+
+
+
+                    <h4 class="card-title">注意事項:</h4>
+                    <p class="card-text">
+                        </p><ul style="list-style:decimal;">
+                            <li>選択肢があります。</li>
+                            <li><span class="text-danger">一つの選択肢だけ選択可能です。</span></li>
+
+                            <li>時間制限はありませんので、ごゆっくりお願い申し上げます。</li>
+                            <li>作成が終わってから2～3営業日以内にご連絡いたします。</li>
+                        </ul>
+                    <p></p>
+                    <a href="{% url 'start-exam'  %}" style="width:150px" class="btn btn-info">作成</a>
+                </div>  
+            </div>  
+        </div>  
+
+    </div>
+</div>
+
+<br><br><br><br><br><br>
